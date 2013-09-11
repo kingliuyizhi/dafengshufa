@@ -1,0 +1,24 @@
+<div class="navbar navbar-inverse navbar-fixed-top ">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+      <a class="brand" href="/<%= "?locale=" + params[:locale] if !params[:locale].nil? %>"><img src="/res/images/title_white.png" width="300px" height="30px" alt="大丰书法 Logo" /></a>
+      <div class="nav-collapse collapse">
+        <ul class="nav pull-right" style="margin-top:5px;">
+          <li <%="class=active" if current_page?(controller: 'homepage', action: 'index')%>><a href="/<%= "?locale=" + params[:locale] if !params[:locale].nil? %>"><i class="icon-home icon-white"></i> <%= t("views.navigation.homepage") %></a></li>
+          <li <%="class=active" if current_page?(controller: 'homepage', action: 'course')%>><a href="/course<%= "?locale=" + params[:locale] if !params[:locale].nil? %>"><i class="icon-pencil icon-white"></i> <%= t("views.navigation.course") %></a></li>
+          <li <%="class=active" if current_page?(controller: 'announcements', action: 'index')%>><a href="/announcements<%= "?locale=" + params[:locale] if !params[:locale].nil? %>"><i class="icon-eye-open icon-white"></i> <%= t("views.navigation.announcements") %></a></li>
+          <li class="dropdown <%=" active" if current_page?(controller: 'homepage', action: 'studentwork') || current_page?(controller: 'homepage', action: 'teacherwork')%>">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-headphones icon-white"></i> <%= t("views.navigation.works") %><b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="/teacherwork<%= "?locale=" + params[:locale] if !params[:locale].nil? %>"><%= t("views.navigation.teacherworks") %></a></li>
+              <li><a href="/studentwork<%= "?locale=" + params[:locale] if !params[:locale].nil? %>"><%= t("views.navigation.studentworks") %></a></li>
+            </ul>
+          </li>
+          <li <%="class=active" if current_page?(controller: 'homepage', action: 'goodstudent')%>><a href="/goodstudent<%= "?locale=" + params[:locale] if !params[:locale].nil? %>"><i class="icon-thumbs-up icon-white"></i> <%= t("views.navigation.goodstudents") %></a></li>
+          <li <%="class=active" if current_page?(controller: 'homepage', action: 'about')%>><a href="/about<%= "?locale=" + params[:locale] if !params[:locale].nil? %>"><i class="icon-user icon-white"></i> <%= t("views.navigation.aboutus") %></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

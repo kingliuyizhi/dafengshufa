@@ -1,0 +1,107 @@
+<div class="container" style="margin-top:20px;">
+  <div class="row-fluid">
+    <div class="span1"></div>
+    <div class="span10">
+      <ul class="breadcrumb">
+        <li><a href="/<%= "?locale=" + params[:locale] if !params[:locale].nil? %>"><%= t("views.navigation.homepage") %></a> <span class="divider">&gt;</span></li>
+        <li class="active"><%= t("views.navigation.aboutus") %></li>
+
+        <div class="pull-right">
+          <a href="?locale=cn" class="language"><img src="/res/images/flags/cn.png" /></a>
+          <a href="?locale=en" class="language"><img src="/res/images/flags/us.png" /></a>
+        </div>
+      </ul>
+    </div>
+    <div class="span1"></div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span1"></div>
+    <div class="span10 well">
+      <div class="row-fluid">
+        <div class="span2"><h3>我们的团队</h3></div>
+        <div class="span10">
+          <br />
+          <div class="row-fluid">
+            <div class="span2">
+              <img src="/res/images/chendehu.jpg" alt="陈德浒照片" class="img-rounded" />
+            </div>
+            <div class="span10 info" style="line-height:180%;">
+              <strong>陈德浒</strong><br />
+              1938年生，江苏省大丰市人。 曾任市文联副主席，大丰报副总编。 现为江苏省书法家协会会员， 中华诗词学会会员， 大丰市人民检察院特邀监察员。
+              自幼爱好翰墨， 潜心习字。 始以颜柳强筋壮骨， 继以二王立身， 旁以苏、黄、米、赵诸家， 以丰神韵， 遂使笔致流畅清劲， 儒雅洒脱， 端庄秀逸， 颇为一观。 近年来， 其作品多次参加全国性大展， 并为一些大型书法集收录。 1997年荣获全国“法制杯”书法大赛三等奖，1999年全国广播电视系统书画比赛一等奖，2001年江苏省书画比赛三等奖，2011年全国老年书画比赛优秀奖，2012年全国离退休干部“诗书画影抒情怀、喜迎党的十八大”主题活动一等奖。
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span2"></div>
+        <div class="span10">
+          <hr />
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span2"></div>
+        <div class="span10">
+          <div class="row-fluid">
+            <div class="span2"><img src="/res/images/liuzhongmin.jpg" alt="刘忠敏照片" class="img-rounded" /></div>
+            <div class="span10 info" style="line-height:180%;">
+              <strong>刘忠敏</strong><br /><br />
+              自幼爱好书画，曾在书画院、青少年宫执教，其书画作品曾在大丰市历届书画展览上入展， 并多次获奖。<br />
+              从事少儿书画教育至今已有10余年，在教学实践中积累了大量的教学经验。教学认真耐心，根据学员年龄基础不同，制定不同的教学方案。 为人耐心亲切，性格温和，深得孩子的喜爱。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="span1"></div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span1"></div>
+    <div class="span10 well">
+      <div class="row-fluid">
+        <div class="span2"><h3>联系方式</h3></div>
+        <div class="span10">
+          <br />
+          <p class="info">
+            <span class="label label-info">电话:</span> <span style="font-size: 20px;"><i>0515-83535039</i></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="label label-info">即时通讯QQ:</span> <span style="font-size: 20px;"><i>1285629853</i></span>
+          </p>
+        </div>
+      </div>
+      <br />
+      <div class="row-fluid">
+        <div class="span2"></div>
+        <div class="span5">
+          <a class="thumbnail" href="http://map.baidu.com/?newmap=1&ie=utf-8&s=s%26wd%3D%E4%B8%AD%E5%9B%BD%E5%85%B1%E4%BA%A7%E5%85%9A%E5%A4%A7%E4%B8%B0%E5%B8%82%E5%A7%94%E5%91%98%E4%BC%9A%E5%85%9A%E6%A0%A1" target="_blank" ><img src="res/images/location.jpg" alt="培训地址" /></a>
+        </div>
+        <div class="span5 info">
+          <span class="label label-info">培训地址:</span> <span style="font-size: 20px;">健康东路97号大丰市检察院检务大厅对门， 妇幼保健站东隔壁（大丰市委党校教学大楼二楼西边第一间）。</span><br />
+        </div>
+      </div>
+    </div>
+    <div class="span1"></div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span1"></div>
+    <div class="span10 well">
+      <div class="row-fluid">
+        <div class="span2"><h3>意见反馈</h3></div>
+        <div class="span10">
+          <br />
+          <div id="feedback"></div>
+          <form id="contact_form">
+            <label>意见</label><textarea rows="10" class="span10" name="message" id="message"></textarea>
+            <br /><br />
+            <label>姓名</label><input type="text" id="name" placeholder="Input a name..." value="" name="name" class="span5">
+            <br /><br />
+            <label>邮箱</label><input type="text" id="email" placeholder="Input a email..." value="" name="email" class="span5">
+            <br /><br />
+            <button id="submit" type="button" class="m-btn blue">提交内容</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="span1"></div>
+  </div>

@@ -1,0 +1,20 @@
+<%= form_for(@announcement, :url => {:controller => "admin/admin_announcements", :action => "update"}) do |f| %>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel" class="text-warning">修改文章</h3>
+    </div>
+    <div class="modal-body">
+        <strong>序号(不能修改): </strong>
+        <%= f.text_field :id, :class => "span5", :readonly => "readonly" %>
+        <br />
+        <strong>题目(不超过100个字): </strong>
+        <%= f.text_field :title, :class => "span5", :maxlength => 100 %>
+        <br />
+        <strong>内容(不超过4000个字): </strong>
+        <%= f.text_area :content, :class => "span5", :maxlength => 4000, :rows => 10 %>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+        <%= f.submit "更新", :class => "btn btn-success" %>
+    </div>
+<% end %>

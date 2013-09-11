@@ -1,0 +1,23 @@
+<!-- lazyload -->
+<script src="/res/lazyload/jquery.lazyload.min.js"></script>
+<script>
+    $(function() {
+        $("img.lazy").lazyload({
+            effect : "fadeIn",
+            threshold : 120
+        });
+    });
+</script>
+
+<!-- fancybox  -->
+<!-- Add mousewheel plugin (this is optional) -->
+<script type="text/javascript" src="/res/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+<script type="text/javascript" src="/res/fancybox/source/jquery.fancybox.pack.js?v=2.1.4"></script>
+<script>
+    $(function() {
+        $(".fancybox").fancybox({
+            openEffect	: 'none',
+            closeEffect	: 'none'
+        });
+    });
+</script>

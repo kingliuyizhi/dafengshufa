@@ -1,0 +1,45 @@
+<!-- modifyModal -->
+<div id="modifyModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true" xmlns="http://www.w3.org/1999/html">
+</div>
+<!-- deleteModal -->
+<div id="deleteModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true" xmlns="http://www.w3.org/1999/html">
+</div>
+
+<div class="container">
+    <% if !flash[:notice].nil? %>
+        <h3 class="alert alert-success text-center">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <%= flash[:notice] %>
+        </h3>
+    <% end %>
+    <div class="row-fluid" style="margin-top:100px;">
+        <a href="/admin/dashboard" class="pull-right"><i class="icon-arrow-left"></i> 返回到控制面板</a>
+        <table class="table table-bordered table-hover">
+            <caption class="text-warning" style="font-size:30px;margin-bottom:20px;">所有文章（一共有<%= @announcements.count %>条记录）</caption>
+            <thead>
+                <tr>
+                  <th style="width:5%;">序号</th>
+                  <th style="width:25%;">题目</th>
+                  <th style="width:15%">创建时间</th>
+                  <th style="width:45%;">内容</th>
+                  <th style="width:5%">删除</th>
+                  <th style="width:5%">修改</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% @announcements.each do |announcement| %>
+                <tr>
+                  <td style="text-align:center;"><%= announcement.id %></td>
+                  <td style="text-align:center;"><%= announcement.title %></td>
+                  <td style="text-align:center;"><%= announcement.created_at %></td>
+                  <td><%= announcement.content %></td>
+                  <td style="text-align:center;"><a href="#deleteModal" data-toggle="modal" class="delete">删除</a></td>
+                  <td style="text-align:center;"><a href="#modifyModal" data-toggle="modal" class="modify">修改</a></td>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+        <div style="text-align: center"><%= paginate @announcements, :theme=>"mytheme" %></div>
+    </div>

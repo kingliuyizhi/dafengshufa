@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:wb="http://open.weibo.com/wb">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="keywords" content="大丰书法, 陈德浒, 培训, 书法" />
+  <meta name="description" content="大丰著名书法家陈德浒先生亲自教学培训, 专业的书法培训机构" />
+  <title><%=@title %>-大丰陈德浒书画培训班, 大丰书法</title>
+
+  <link rel="stylesheet" type="text/css" href="/res/bootstrap/css/bootstrap.min.css" media="screen" />
+
+  <!-- metro style -->
+  <link rel="stylesheet" type="text/css" href="/res/css3-microsoft-modern-buttons/css/m-styles.min.css" />
+
+  <link rel="shortcut icon" type="image/x-icon" href="/res/images/book.png" />
+
+  <!--[if gte IE 7]>
+  <script>
+      if (screen.width <= 1024) {
+          document.write("<style>.container {width: 960px;}.navbar img {width: 200px;}.navbar li {font-size: 13px;}.navbar .container {margin-left: 80px;margin-right: 80px;}</style>");
+      } else {
+          document.write("<style>body {padding-top: 80px;}.container {width: 1120px;margin: 0 auto;}.navbar .container {width: auto;margin-left: 150px;margin-right: 150px;height: 56px;}</style>");
+      }
+  </script>
+  <![endif]-->
+
+  <!--[if lte IE 6]>
+  <link rel="stylesheet" type="text/css" href="/res/bootstrap/css/bootstrap-ie6.min.css">
+  <link rel="stylesheet" type="text/css" href="/res/bootstrap/css/ie.css">
+  <![endif]-->
+
+  <link rel="stylesheet" type="text/css" href="/res/css/main.css" />
+  <link rel="stylesheet" type="text/css" href="/res/bootstrap/css/bootstrap-responsive.min.css" />
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <% if current_page?(controller: 'homepage', action: 'index') %>
+      <%= render :partial => "/layouts/index_header" %>
+  <% end %>
+
+  <% if current_page?(controller: 'homepage', action: 'teacherwork') %>
+      <%= render :partial => "/layouts/teacherwork_header" %>
+  <% end %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+    <%= render :partial => "/layouts/navigation" %>
+
+    <%= yield %>
+
+        <div class="footer">
+          <div class="row-fluid">
+            <div class="span1"></div>
+            <div class="span10 well">
+              <div class="">
+                <%= t("views.footer.linkpartners") %>:
+                <a href="http://www.ccagov.com.cn/" target="_blank">中国书法家协会</a>
+                <span class="muted">|</span>
+                <a href="http://www.shufa.com/" target="_blank">中国书法网</a>
+              </div>
+              <div>
+                <div class="pull-left">
+                  <a href="http://www.china-shufajia.com/html/index.html" target="_blank">中国书法家网</a>
+                  <span class="muted">|</span>
+                  <a href="http://www.shufawu.com/" target="_blank">书法学习网</a>
+                  <span class="muted">|</span>
+                  <a href="http://www.artx.cn/artx/shufa/" target="_blank">中国书法艺术网</a>
+                  <span class="muted">|</span>
+                  <a href="http://www.jssfw.com.cn/" target="_blank">江苏书法网</a>
+                </div>
+                <div style="color: #888; " class="pull-right">Copyright &copy; 2013 <%= t("views.footer.dafengchendehushuhuapeixunban") %></div>
+              </div>
+            </div>
+            <div class="span1"></div>
+          </div>
+        </div>
+
+        <div style="position:fixed;bottom:15%;right:5%;"><button class="m-btn span1" style="display:none" id="gotop"><i class="icon-arrow-up"></i></button></div>
+    </div>
+
+    <!-- Baidu Button BEGIN -->
+    <script id="bdshare_js" data="type=slide&amp;img=2&amp;pos=right&amp;uid=0" ></script>
+    <script id="bdshell_js"></script>
+    <script>
+        document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+    </script>
+    <!-- Baidu Button END -->
+
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="/res/backbone/underscore-min.js"></script>
+    <script type="text/javascript" src="/res/backbone/backbone-min.js"></script>
+    <script src="/res/bootstrap/js/bootstrap.min.js"></script>
+
+    <!--[if lte IE 6]>
+    <script type="text/javascript" src="/res/bootstrap/js/bootstrap-ie.js"></script>
+    <![endif]-->
+
+    <script src="/res/js/scroll_top.js"></script>
+
+    <script>
+        _.templateSettings = {
+            interpolate: /\{\{\=(.+?)\}\}/g,
+            evaluate: /\{\{(.+?)\}\}/g
+        };
+    </script>
+
+    <% if current_page?(controller: 'homepage', action: 'index') %>
+    <%= render :partial => "/layouts/index_footer" %>
+    <% end %>
+
+    <% if current_page?(controller: 'homepage', action: 'teacherwork') %>
+        <%= render :partial => "/layouts/teacherwork_footer" %>
+    <% end %>
+
+    <% if current_page?(controller: 'homepage', action: 'studentwork') %>
+        <%= render :partial => "/layouts/studentwork_footer" %>
+    <% end %>
+
+    <% if current_page?(controller: 'homepage', action: 'goodstudent') %>
+        <%= render :partial => "/layouts/goodstudent_footer" %>
+    <% end %>
+
+    <% if current_page?(controller: 'homepage', action: 'about') %>
+        <%= render :partial => "/layouts/about_footer" %>
+    <% end %>
+
+    <% if current_page?(controller: 'announcements', action: 'index') %>
+        <%= render :partial => "/layouts/announcements_footer" %>
+    <% end %>
+
+    <script>
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-33792301-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</body>
+</html>

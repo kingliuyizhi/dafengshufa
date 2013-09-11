@@ -1,0 +1,122 @@
+<div class="container" style="margin-top:20px;">
+  <div class="row-fluid">
+    <div class="span1"></div>
+    <div class="span10">
+      <ul class="breadcrumb">
+        <li><a href="/<%= "?locale=" + params[:locale] if !params[:locale].nil? %>"><%= t("views.navigation.homepage") %></a> <span class="divider">&gt;</span></li>
+        <li class="active"><%= t("views.navigation.course") %></li>
+
+        <div class="pull-right">
+          <a href="?locale=cn" class="language"><img src="/res/images/flags/cn.png" /></a>
+          <a href="?locale=en" class="language"><img src="/res/images/flags/us.png" /></a>
+        </div>
+      </ul>
+    </div>
+    <div class="span1"></div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span1"></div>
+    <div class="span10 well">
+      <div class="row-fluid">
+        <div class="span2"><h3>课程设置</h3></div>
+        <div class="span10">
+          <br />
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th colspan="2">课程名称</th>
+              <th>开课时间</th>
+              <th>课程学时</th>
+              <th>班制</th>
+              <th>学杂费</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td rowspan="2">基础班书法</td>
+              <td>铅/钢笔</td>
+              <td rowspan="2">滚动开课</td>
+              <td>18-20</td>
+              <td rowspan="2">15人</td>
+              <td rowspan="2">￥700</td>
+            </tr>
+            <tr>
+              <td>毛笔</td>
+              <td>18-20</td>
+            </tr>
+            <tr>
+              <td rowspan="2">提高班书法</td>
+              <td>铅/钢笔</td>
+              <td rowspan="2">滚动开课</td>
+              <td>18-20</td>
+              <td rowspan="2">15人</td>
+              <td rowspan="2">￥700</td>
+            </tr>
+            <tr>
+              <td>毛笔</td>
+              <td>18-20</td>
+            </tr>
+
+            <tr>
+              <td rowspan="2">少儿国画班</td>
+              <td>写意画</td>
+              <td rowspan="2">滚动开课</td>
+              <td>18-20</td>
+              <td rowspan="2">15人</td>
+              <td rowspan="2">￥700</td>
+            </tr>
+            <tr>
+              <td>工笔画</td>
+              <td>18-20</td>
+            </tr>
+
+            <tr>
+              <td colspan="2">成人书法</td>
+              <td>滚动开课</td>
+              <td>18-20</td>
+              <td>15人</td>
+              <td>￥3000</td>
+            </tr>
+            </tbody>
+          </table>
+          <div class="alert">
+            <strong>注：</strong> 学杂费包含纸、墨、笔、砚、字帖等材料。
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="span1"></div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span1"></div>
+    <div class="span10 well">
+      <div class="row-fluid">
+        <div class="span2"><h3>课程内容</h3></div>
+        <div class="span10">
+          <br />
+          <h5><span class="badge badge-info">招收对象</span></h5>
+          <p>6周岁以上</p>
+          <hr />
+
+          <h5><span class="badge badge-info">课程安排</span></h5>
+          <p>初级班铅笔： 1、掌握正确坐势和执笔姿势。2、临摹司马彦楷书古诗词。3、讲解硬笔楷书的笔划结构并临写。</p>
+          <p>初级班毛笔： 1、掌握正确坐势和五指执笔法。2、学习楷书基本笔划入门。3、学习楷书、颜体偏旁部首间架结构。4、学习隶书、曹全碑偏旁部首间架结构。5、考级4-6级辅导。6、作品基本章法。7、学习写春联。</p>
+          <br />
+
+          <p>提高班钢笔： 临摹楷书、行书并创作硬笔字作品。</p>
+          <p>提高班毛笔： 1、练习楷书（颜体、欧体）。2、学习篆书偏旁部首间架结构。3、学习行书偏旁部首间架结构，练习各种行书作品（王羲之、赵孟頫、米芾等名贴）。4、学习魏碑（张猛龙）。5、考级7-10级辅导。6、学习写春联。</p>
+          <br />
+
+          <p>少儿国画班： 1、学习国画基础知识、用水、用色、用笔、用墨、题款、构图等方法技巧。2、花鸟、鱼虫、人物、动物、蔬果、山水等。3、结合孩子的兴趣，在传统文化中融入现代趣味，让孩子们在快乐学习中体会水与墨的趣味。</p>
+
+          <hr />
+
+          <h5><span class="badge badge-info">授课时间</span></h5>
+          <p>每周星期六、星期日。上午：8：00-10：30，下午：14：00-16：30。每期20个半天。（缺课可以补课）</p>
+          <div class="info">1课时=2.5小时</div>
+        </div>
+      </div>
+    </div>
+  </div>

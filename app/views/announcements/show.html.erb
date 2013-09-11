@@ -1,0 +1,30 @@
+<div class="container" style="margin-top:20px;">
+  <div class="row-fluid">
+    <div class="span1"></div>
+    <div class="span10">
+      <ul class="breadcrumb">
+        <li><a href="/<%= "?locale=" + params[:locale] if !params[:locale].nil? %>">主页</a> <span class="divider">&gt;</span></li>
+        <li><a href="/announcement<%= "?locale=" + params[:locale] if !params[:locale].nil? %>">公司动态</a> <span class="divider">&gt;</span></li>
+        <li class="active">文章详情</li>
+      </ul>
+    </div>
+    <div class="span1"></div>
+  </div>
+
+  <div class="row-fluid" style="min-height:540px;">
+    <div class="span2"></div>
+    <div class="span8 well">
+      <% if @announcement.nil? %>
+          <h1 style="color:RED;text-align:center;height:200px;">当前文章不存在!</h1>
+      <% else %>
+          <h3 style="text-align: center;"><%= @announcement.title  %></h3>
+          <div style="text-align: center;"><%= @announcement.created_at.to_s[0, 19] %></div>
+          <div class="row-fluid">
+            <div class="span1"></div>
+            <div class="span10 info" style="margin-top:30px;"><p><%= @announcement.content %></p></div>
+            <div class="span1"></div>
+          </div>
+      <% end %>
+    </div>
+    <div class="span2"></div>
+  </div>

@@ -1,0 +1,117 @@
+<div class="container">
+  <div class="row-fluid">
+    <div class="span1"></div>
+    <div class="span10 well">
+      <div class="row-fluid" style="position:relative;">
+        <div style="position: absolute; top: 8px; right: 10px; width: 250px; height: 24px;">
+          <div class="pull-right">
+            <a href="?locale=cn" class="language"><img src="/res/images/flags/cn.png" /></a>
+            <a href="?locale=en" class="language"><img src="/res/images/flags/us.png" /></a>
+          </div>
+          <div class="pull-right">
+            <wb:follow-button uid="2968508444" type="gray_2" width="136" height="24" style="display:block"></wb:follow-button>
+          </div>
+        </div>
+        <legend class="legend">
+          <h4><%= t("views.homepage.learncalligraphy") %>&nbsp;&nbsp;&nbsp;<a href="/course<%= "?locale=" + params[:locale] if !params[:locale].nil? %>"><i class="icon-hand-right"></i> <%= t("views.homepage.courseoffering") %></a></h4>
+        </legend>
+      </div>
+
+      <div id="myCarousel" class="carousel slide">
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+          <div class="active item">
+            <img src="/res/images/myslide1.jpg" alt="大丰书法 幻灯片1" />
+            <div class="carousel-caption">
+              <h4><%= t("views.homepage.professionalpaintingandcalligraphytraininginstitution") %></h4>
+            </div>
+          </div>
+          <div class="item">
+            <img src="/res/images/myslide2.jpg" alt="大丰书法 幻灯片2" />
+            <div class="carousel-caption">
+              <h4><%= t("views.homepage.extensiveteachingexperience") %></h4>
+            </div>
+          </div>
+          <div class="item">
+            <img src="/res/images/myslide3.jpg" alt="大丰书法 幻灯片3" />
+            <div class="carousel-caption">
+              <h4><%= t("views.homepage.instructedby") %></h4>
+            </div>
+          </div>
+        </div>
+        <!-- Carousel nav -->
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev"><span style="position:relative;top:-2px;">&lsaquo;</span></a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next"><span style="position:relative;top:-2px;">&rsaquo;</span></a>
+      </div>
+
+      <div class="row-fluid" style="margin-top:-15px;margin-bottom:-25px;">
+        <div class="span1"></div>
+        <div class="span2" style="color: #1F545F; font:bold 15px/40px 'Microsoft YaHei';"><%= t("views.homepage.rollingnews") %></div>
+        <div class="span8">
+          <ul id="webticker">
+            <script type="text/template" id="webticker_template">
+              {{ for (var i = 0; i < announcements.length; i++) { }}
+                {{ var announcement = announcements[i]; }}
+                <li><a href="/announcements/{{= announcement._id }}<%= "?locale=" + params[:locale] if !params[:locale].nil? %>" target="_blank">{{= announcement.title }}</a></li>
+              {{ } }}
+            </script>
+          </ul>
+        </div>
+        <div class="span1"></div>
+      </div>
+    </div>
+    <div class="span1"></div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span1"></div>
+    <div class="span5">
+      <div class="row-fluid">
+        <div class="span8">
+          <h4><i class="icon-eye-open"></i> <%= t("views.homepage.announcements") %></h4>
+        </div>
+        <div class="span3 offset1" style="margin-top:13px;">
+          <a href="/announcements<%= "?locale=" + params[:locale] if !params[:locale].nil? %>" target="_blank"><i class="icon-plus"></i> <%= t("views.homepage.more") %></a>
+        </div>
+      </div>
+      <table style='width:100%;' id="dynamic_announcements">
+        <script type="text/template" id="dynamic_announcements_template">
+          {{ for (var i = 0; i < announcements.length; i++) { }}
+            {{ var announcement = announcements[i]; }}
+            {{ var d = new Date(announcement.created_at); }}
+            {{ d = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate(); }}
+            {{ if (i == 0) { }}
+                <tr><td style="width:75%"><a href="/announcements/{{= announcement._id }}<%= "?locale=" + params[:locale] if !params[:locale].nil? %>" target="_blank" style="color:RED">{{= announcement.title.substring(0, 30) }}</a></td><td style="width:25%;color:#989898;">{{= d }}</td></tr>
+            {{ } else if (i == 6) { // only display first six announcements }}
+            {{      break;  }}
+            {{  } else { }}
+                <tr><td style="width:75%"><a href="/announcements/{{= announcement._id }}<%= "?locale=" + params[:locale] if !params[:locale].nil? %>" target="_blank">{{= announcement.title.substring(0, 30) }}</a></td><td style="width:25%;color:#989898;">{{= d }}</td></tr>
+            {{  }  }}
+          {{ } }}
+        </script>
+      </table>
+    </div>
+    <div class="span5">
+      <div class="row-fluid">
+        <div class="span6">
+          <h4><i class="icon-flag"></i> <%= t("views.homepage.introduction") %></h4>
+          <p class="info">大丰陈德浒书画培训班是由著名书法家陈德浒老师创办，并亲自执教。采用小班教学模式，注重因人施教，使学员在最短时间掌握、提高书法技能。</p>
+          <a class="m-btn blue" href="/course<%= "?locale=" + params[:locale] if !params[:locale].nil? %>"><%= t("views.homepage.learnmore") %><i class="icon-share-alt icon-white"></i></a>
+        </div>
+        <div class="span6">
+          <h4><i class="icon-search"></i> <%= t("views.homepage.contact") %></h4>
+          <p class="info">
+            <strong><%= t("views.homepage.phone") %>:</strong> <span style="font-size: 20px;">0515-83535039</span><br />
+            <strong><%= t("views.homepage.address") %>:</strong> 健康东路97号大丰市检察院检务大厅对门， 妇幼保健站东隔壁(大丰市委党校教学大楼二楼西边第一间)。
+          </p>
+          <a class="m-btn blue" href="/about<%= "?locale=" + params[:locale] if !params[:locale].nil? %>"><%= t("views.homepage.learnmore") %><i class="icon-share-alt icon-white"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="span1"></div>
+  </div>
+
+  <br /><br />
+  <div id="testimonials">
+    <span>&ldquo;字要骨格，肉须裹筋，筋须藏肉，帖乃秀润生&rdquo;</span> - 宋·米芾
+  </div>

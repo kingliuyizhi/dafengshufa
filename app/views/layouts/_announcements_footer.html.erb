@@ -1,0 +1,31 @@
+<script>
+    $(function() {
+
+        // announcements
+        var Announcement = Backbone.Model.extend({
+        });
+        var AnnouncementList = Backbone.Collection.extend({
+            model: Announcement,
+            url: "/api/api/get_announcements"
+        });
+        var announcementList = new AnnouncementList();
+        announcementList.fetch({
+            type: "POST"
+        });
+
+        var AnnouncementListView = Backbone.View.extend({
+            el: $("body"),
+            collection: announcementList,
+            initialize: function(){
+                this.collection.bind("sync", this.render, this);
+            },
+            render : function(){
+                var webticker_template = _.template($("#announcements_template").html(), { announcements: this.collection.toJSON() });
+                this.$el.find("#announcements").html( webticker_template );
+                return this;
+            }
+        });
+        var announcementListView = new AnnouncementListView();
+
+    });
+</script>

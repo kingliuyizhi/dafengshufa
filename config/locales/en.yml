@@ -1,0 +1,33 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  views:
+    navigation:
+      homepage: "Homepage"
+      course: "Course"
+      announcements: "Announcements"
+      works: "Works"
+      teacherworks: "Teacher works"
+      studentworks: "Student works"
+      goodstudents: "Good students"
+      aboutus: "About us"
+
+    homepage:
+      learncalligraphy: "Learn calligraphy, join us!"
+      courseoffering: "Course offering"
+      professionalpaintingandcalligraphytraininginstitution: "Professional painting and calligraphy training institutions"
+      extensiveteachingexperience: "Extensive teaching experience"
+      instructedby: "Instructed by Mr. Chen Dehu"
+      rollingnews: "Rolling news"
+      announcements: "Announcements"
+      more: "More"
+      introduction: "Introduction"
+      contact: "contact"
+      learnmore: "Learn more"
+      phone: "phone"
+      address: "address"
+
+    footer:
+      linkpartners: "Link partners"
+      dafengchendehushuhuapeixunban: "Dafeng Chendehu Calligraphy Training Class"

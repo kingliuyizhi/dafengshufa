@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="keywords" content="大丰书法, 陈德浒, 培训, 书法" />
+  <meta name="description" content="大丰著名书法家陈德浒先生亲自教学培训, 专业的书法培训机构" />
+  <title><%= @title %></title>
+
+  <link rel="stylesheet" type="text/css" href="/res/bootstrap/css/bootstrap.min.css" media="screen" />
+
+  <!-- metro style -->
+  <link rel="stylesheet" type="text/css" href="/res/css3-microsoft-modern-buttons/css/m-styles.min.css" />
+
+  <link rel="shortcut icon" type="image/x-icon" href="/res/images/book.png" />
+
+  <!--[if gte IE 7]>
+  <script>
+      if (screen.width <= 1024) {
+          document.write("<style>.container {width: 960px;}.navbar img {width: 200px;}.navbar li {font-size: 13px;}.navbar .container {margin-left: 80px;margin-right: 80px;}</style>");
+      } else {
+          document.write("<style>body {padding-top: 80px;}.container {width: 1120px;margin: 0 auto;}.navbar .container {width: auto;margin-left: 150px;margin-right: 150px;height: 56px;}</style>");
+      }
+  </script>
+  <![endif]-->
+
+  <!--[if lte IE 6]>
+  <link rel="stylesheet" type="text/css" href="/res/bootstrap/css/bootstrap-ie6.min.css">
+  <link rel="stylesheet" type="text/css" href="/res/bootstrap/css/ie.css">
+  <![endif]-->
+
+  <link rel="stylesheet" type="text/css" href="/res/bootstrap/css/bootstrap-responsive.min.css" />
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <% if current_page?(controller: 'login', action: 'index') %>
+      <%= render :partial => "/layouts/admin_login" %>
+  <% end %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+    <%= yield %>
+
+        <div style="position:fixed;bottom:15%;right:5%;"><button class="m-btn span1" style="display:none" id="gotop"><i class="icon-arrow-up"></i></button></div>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/res/bootstrap/js/bootstrap.min.js"></script>
+
+    <% if current_page?(controller: 'admin_announcements', action: 'index') %>
+        <%= render :partial => "/layouts/admin_announcements" %>
+    <% end %>
+
+    <!--[if lte IE 6]>
+    <script type="text/javascript" src="/res/bootstrap/js/bootstrap-ie.js"></script>
+    <![endif]-->
+
+    <script src="/res/js/scroll_top.js"></script>
+
+</body>
+</html>

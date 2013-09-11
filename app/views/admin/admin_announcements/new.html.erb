@@ -1,0 +1,26 @@
+<div class="container">
+    <h2 class="text-center text-warning">创建新文章</h2><br />
+    <a href="/admin/dashboard" class="pull-right"><i class="icon-arrow-left"></i> 返回到控制面板</a>
+    <div class="row-fluid">
+        <div class="span1"></div>
+        <div class="span10">
+            <%= form_for(@announcement, :url => {:controller => "admin/admin_announcements", :action => "create"}) do |f| %>
+                <% if @announcement.errors.any? %>
+                    <div id="error_explanation">
+                      <h2><%= pluralize(@announcement.errors.count, "error") %> prohibited this announcement from being saved:</h2>
+
+                      <ul>
+                        <% @announcement.errors.full_messages.each do |msg| %>
+                            <li><%= msg %></li>
+                        <% end %>
+                      </ul>
+                    </div>
+                <% end %>
+
+                <span>题目:</span> &nbsp;&nbsp;<%= f.text_field :title, :class => "span10", :maxlength => 100 %> <span>(不超过100个字)</span><br />
+                <span>内容:</span> &nbsp;&nbsp;<%= f.text_area :content, :class => "span10", :maxlength => 4000 %> <span>(不超过4000个字)</span><br /><br />
+                <div style="text-align:center"><%= f.submit "提交", :class => "btn btn-large btn-success" %></div>
+            <% end %>
+        </div>
+        <div class="span1"></div>
+    </div>

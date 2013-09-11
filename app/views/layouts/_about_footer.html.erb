@@ -1,0 +1,32 @@
+<script>
+    // handle ajax form submit
+    $(function() {
+        $("#submit").click(function() {
+            ajax_email();
+        });
+        function ajax_email() {
+            var name = $("#name").val();
+            var message = $("#message").val();
+            var from = $("#email").val();
+
+            if (name == "" || from == "" || message == "") {
+                $("#feedback").html("<div class='alert alert-error'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong>错误! </strong>您填写的信息不完整，请核对无误后提交。</div>");
+                return;
+            }
+
+            $.ajax({
+                url: 'http://www.dafengshufa.com/php/contact.php',
+                dataType: 'html',
+                type: 'POST',
+                data: {'subject':name, 'from':from, 'message':message},
+                beforeSend: function() { },
+                error: function(jqXHR, textStatus, errorThrown) {alert("ajax error!!");},
+                success: callback
+            });
+        }
+        function callback(data) {
+            $('div#feedback').html(data);
+            $("#contact_form").hide();
+        }
+    });
+</script>

@@ -1,0 +1,100 @@
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" charset="utf-8"></script>
+
+<!-- webticker -->
+<script src="/res/webticker/jquery.webticker.js"></script>
+<script>
+    $(function() {
+
+        // change language
+        $( ".language" ).click(function() {
+            $(this).attr("href", window.location + $(this).href() );
+        });
+
+        var Announcement = Backbone.Model.extend({
+        });
+        var AnnouncementList = Backbone.Collection.extend({
+            model: Announcement,
+            url: "/api/api/get_announcements"
+        });
+        var announcementList = new AnnouncementList();
+        announcementList.fetch({
+            type: "POST",
+            data: {cnt: 20}, // webticker -> 20, dynamic_announcements -> 6
+            success: function (data) {
+                // alert(JSON.stringify(data.toJSON()));
+            },
+            error: function(){ alert("fetch error!"); }
+        });
+
+        var AnnouncementListView = Backbone.View.extend({
+            el: $("body"),
+            collection: announcementList,
+            initialize: function(){
+                this.collection.bind("sync", this.render, this);
+            },
+            render : function(){
+                // alert( JSON.stringify(this.collection.toJSON()) );
+
+                // webticker
+                var webticker_template = _.template($("#webticker_template").html(), { announcements: this.collection.toJSON() }); // Compile the template using underscore
+                // alert( webticker_template );
+                this.$el.find("#webticker").html( webticker_template )
+                               .webTicker({travelocity: 0.02});
+
+                // dynamic announcements
+                var dynamic_announcements_template = _.template($("#dynamic_announcements_template").html(), { announcements: this.collection.toJSON() });
+                this.$el.find("#dynamic_announcements").html( dynamic_announcements_template );
+
+                return this;
+            }
+        });
+        var announcementListView = new AnnouncementListView();
+
+        /*
+        // webticker
+        $.ajax({
+            type: "POST",
+            url: "/api/api/get_announcements",
+            dataType: "json",
+            data: { cnt: 20 },
+            beforeSend: function(xhr) { xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content')); },
+            error: function(jqXHR, textStatus, errorThrown) {alert("ajax error!!");},
+            success: webticker_callback
+        });
+        function webticker_callback(data) {
+            var cnt = data.length;
+            var webticker = "";
+            for (var i = 0; i < cnt; i++) {
+                webticker += "<li><a href=\"\/announcements\/" + data[i].id + "\" target=\"_blank\">" + data[i].title + "<\/a><\/li>";
+            }
+            $("#webticker").append(webticker);
+            $("#webticker").webTicker({travelocity: 0.02});
+        }
+
+        // dynamic announcements
+        $.ajax({
+            type: "POST",
+            url: "/api/api/get_announcements",
+            dataType: "json",
+            data: { cnt: 6 },
+            beforeSend: function(xhr) { xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content')); },
+            error: function(jqXHR, textStatus, errorThrown) {alert("ajax error!!");},
+            success: dynamic_announcements_callback
+        });
+        function dynamic_announcements_callback(data) {
+            var cnt = data.length;
+            var dynamic_announcements = "";
+            for (var i = 0; i < cnt; i++) {
+                var d = new Date(data[i].created_at);
+                d = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate();
+                if (i == 0) {
+                    dynamic_announcements += "<tr><td style=\"width:75%\"><a href=\"\/announcements\/" + data[i].id + "\" target=\"_blank\" style=\"color:RED\">" + data[i].title.substring(0, 30) + "<\/a><\/td><td style=\"width:25%;color:#989898;\">" + d + "<\/td><\/tr>";
+                } else {
+                    dynamic_announcements += "<tr><td style=\"width:75%\"><a href=\"\/announcements\/" + data[i].id + "\" target=\"_blank\">" + data[i].title.substring(0, 30) + "<\/a><\/td><td style=\"width:25%;color:#989898;\">" + d + "<\/td><\/tr>";
+                }
+            }
+            $("#dynamic_announcements").append(dynamic_announcements);
+        }
+         */
+    });
+</script>

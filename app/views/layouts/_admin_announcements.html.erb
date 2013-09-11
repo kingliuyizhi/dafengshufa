@@ -1,0 +1,43 @@
+<script>
+    $(function() {
+
+        $(".modify").click(function() {
+            // Get the current row
+            var row = $(this).closest("tr");
+
+            var tds = row.find("td");
+            var id = tds[0].innerHTML;
+
+            $.ajax({
+                url: "/admin/admin_announcements/" + id + "/edit",
+                dataType: "html",
+                beforeSend: function() { },
+                error: function(jqXHR, textStatus, errorThrown) {alert("ajax error!!");},
+                success: callback
+            });
+            function callback(data) {
+                $("#modifyModal").html(data);
+            }
+        });
+        $(".delete").click(function() {
+            // Get the current row
+            var row = $(this).closest("tr");
+
+            var tds = row.find("td");
+            var id = tds[0].innerHTML;
+
+            $.ajax({
+                type: "POST",
+                url: "/admin/admin_announcements/" + id + "/delete",
+                dataType: "html",
+                beforeSend: function(xhr) { xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content')); },
+                error: function(jqXHR, textStatus, errorThrown) {alert("ajax error!!");},
+                success: callback
+            });
+            function callback(data) {
+                $("#deleteModal").html(data);
+            }
+        });
+
+    });
+</script>

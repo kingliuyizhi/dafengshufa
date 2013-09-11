@@ -1,0 +1,44 @@
+$horizontal_line_color : #e5e5e5;
+
+body {
+  font-family: "Segoe UI","Segoe WP","Helvetica Neue",sans-serif;
+}
+
+@media (min-width: 981px) {
+  body {
+    padding-top: 60px;
+  }
+
+  .navbar img {
+    margin-left: 100px;
+  }
+}
+
+@media (max-width: 1024px) {
+  body {
+    padding-top: 100px;
+  }
+}
+
+/*
+.area{
+	background-color: white;
+	padding: 19px;
+	margin-bottom: 12px;
+	box-shadow: 0 0 30px #ccc;
+}
+*/
+
+hr {
+  border: 1px solid $horizontal_line_color;
+}
+
+.info {
+  font-size: 13px;
+  color: #4f4f4f;
+  line-height: 180%
+}
+
+.footer {
+  font-size: 10px;
+}
